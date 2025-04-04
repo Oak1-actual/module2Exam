@@ -1,8 +1,9 @@
 function calculateTotal() {
     var roomRate = document.getElementById('room-type').value;
-    var nights = document.getElementById('nights').innerHTML;
+    var nights = document.getElementById('nights').value; // Changed from innerHTML til value.
 
     nights = parseInt(nights);
+    
     if (isNaN(nights) || nights <= 0) {
         alert('Please enter a valid number of nights.');
         return;
@@ -13,13 +14,13 @@ function calculateTotal() {
         return;
     }
 
-    var total = parseInt(roomRate) * nights;  
-    document.getElementByID('total-cost').innerText = total.toFixed(2);  
+    var total = parseInt(roomRate) * nights;
+    document.getElementById('total-cost').textContent = total.toFixed(2);  // Changed from .innerText to .textContent, ID to Id;
 }
 
 function confirmBooking() {
-    var total = document.getElementById('total-cost').innerText;
-    if (total === 0) {
+    total = document.getElementById('total-cost').innerText;
+    if (total <= 0) { // Changed from === to <= to catch different data types.
         alert('Please calculate the total before confirming.');
         return;
     }
@@ -29,6 +30,7 @@ function confirmBooking() {
 
 function resetForm() {
     document.getElementById('room-type').selectedIndex = 0;
-    document.getElementById('nights').value = 0;
-    document.getElementById('confirmation-msg').innerText = '';
+    document.getElementById('nights').value = 1; // Changed to 1, since 0 doesn't make sence to book.
+    document.getElementById('confirmation-msg').textContent = ''; // Changed from .innerText to .textContent
+    document.getElementById('total-cost').textContent = 0; //added this to reset total cost aswell
 }

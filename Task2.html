@@ -10,9 +10,9 @@
         <label for="room-type">Choose a room type:</label>
         <select id="room-type">
             <option value="">Select a room</option>
-            <option value="$100">Standard - $100/night</option>
-            <option value="$150">Deluxe - $150/night</option>
-            <option value="$200">Suite - $200/night</option>
+            <option value="100">Standard - $100/night</option> <!-- Removed dollarsign in value -->
+            <option value="150">Deluxe - $150/night</option> <!-- Removed dollarsign in value -->
+            <option value="200">Suite - $200/night</option> <!-- Removed dollarsign in value -->
         </select>
     </div>
     <div>
@@ -25,6 +25,6 @@
     <p id="confirmation-msg"></p>
     <button id="reset-form-btn" onclick="resetForm()">Reset Form</button>
 
-    <script href="Task2.js"></script>
+    <script src="Task2.js"></script> <!-- Changed from href= to src=-->
 </body>
 </html>
