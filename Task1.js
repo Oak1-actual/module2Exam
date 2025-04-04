@@ -16,6 +16,7 @@ function createTask(description, category) {
 }
 
 // Function for adding a task to the tasks array.
+// Calls the renderTasks() and clearInputs() function to show the added task in HTML and to reset the input field.
 function addTask() {
   const description = getInputValue("taskInput"); // Gets the value from the input type = "text", wich will be the task description.
   const category = getInputValue("categorySelect"); // Gets the value from the selected option in the dropdown menu (select), which will be the selected task category.

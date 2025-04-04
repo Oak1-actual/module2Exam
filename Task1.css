@@ -1,34 +1,39 @@
+/* Manipulates the font, background color margin (none) and padding-size to the body */
 body {
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
-    margin: 0;
-    padding: 2rem;
+    font-family: Arial, sans-serif; /* Defines font */
+    background: #f2f2f2; /* Sets bg color */
+    margin: 0; /* No margin */
+    padding: 2rem; /* 2rem padding all sides */
   }
   
+  /* Styles the container*/
   .container {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    max-width: 500px;
-    margin: auto;
+    background: white; /* Color of background */
+    padding: 1.5rem; /* Padding size */
+    border-radius: 8px; /* Rounds the corners */
+    max-width: 500px; /* Limits the width to max 500px */
+    margin: auto; /* Auto margin centers the div */
   }
   
+  /* Applies same styling to several element types: input, select, button */
   input, select, button {
-    padding: 0.5rem;
-    margin: 0.3rem 0;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 0.5rem; /* Padding size */
+    margin: 0.3rem 0; /* Margin size top and bottom = 0,3rem, right and left = 0; */
+    width: 100%; /* Makes the elements span 100% of container width*/
+    box-sizing: border-box; /* Includes content, padding and border in defined width. */
   }
   
+  /* Styles the unorderd list */
   ul {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* Removes default list styling*/
+    padding: 0; /* No padding */
   }
   
+  /* Styles the list elements */
   li {
-    margin: 0.5rem 0;
-    background: #e8e8e8;
-    padding: 0.5rem;
-    border-radius: 4px;
+    margin: 0.5rem 0; /* margin top&bot = 0.5rem, sides = 0; */
+    background: #e8e8e8; /* Sets background color */
+    padding: 0.5rem; /* Padding 0.5rem all sides */
+    border-radius: 4px; /* Rounds the corners */
   }
   
