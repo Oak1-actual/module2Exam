@@ -84,3 +84,10 @@ function filterTasks() {
 function resetFilter(){
     renderTasks(tasks); // Runs the function which adds all tasks elements to the ul as li-elements, not filtering out any categories.
 }
+
+/* 
+- The functions are split into distinct tasks, avoiding complex function that serves multiple purposes.
+- Functions with spesific and contained purposes makes it easier to reuse them throughout the program for several other purposes.
+- This makes it easier to maintain and change individual functions later on, reducing the risk of introducing bugs.
+- Splitting the code into distinct functions increases readability.
+*/
