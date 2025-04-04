@@ -52,7 +52,7 @@ function filterTasks() {
 
   for (let i = 0; i < tasks.length; i++) { // Loop that will iterate as many times as the number of elements in the taks array.
     if (tasks[i].category === cat) { // Condition for execution. If the indexed array element has the same category as the the selected category (dropdown option) the code will run.
-      results.push(tasks[i]); // Adds the indexed tasks element to the results array (The task category matched the filter category).
+      results.push(tasks[i]); // Adds the indexed element to the results array (The task category matched the filter category).
     }
   }
 
