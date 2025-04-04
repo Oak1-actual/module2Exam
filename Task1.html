@@ -2,26 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Todo with Categories</title>
-  <link rel="stylesheet" href="Task1.css">
+  <title>Todo with Categories</title> <!-- Site title -->
+  <link rel="stylesheet" href="Task1.css"> <!-- Fetching CSS-code (styling) from this file -->
 </head>
 <body>
-  <div class="container">
-    <h1>Task Manager</h1>
 
-    <input type="text" id="taskInput" placeholder="Task description">
-    <select id="categorySelect">
-      <option value="Work">Work</option>
-      <option value="Home">Home</option>
-      <option value="Other">Other</option>
+  <div class="container"> <!-- Applies the style "container" to the div. The div contains all child elements. -->
+    <h1>Task Manager</h1> <!-- Title in the container div -->
+
+    <input type="text" id="taskInput" placeholder="Task description"> <!-- Input field for text. Has an id which is used for CSS and JS code. Used for taking in the task text. Placeholder is the text displayed while input is empty -->
+    <select id="categorySelect"> <!-- Dropdown menu with attached id which can be used for styling and JS. Used for selecting task category-->
+      <option value="Work">Work</option> <!-- Selection option in the dropwdown. Value is used for displaying category and filtering -->
+      <option value="Home">Home</option> <!-- Selection option in the dropwdown. Value is used for displaying category and filtering -->
+      <option value="Other">Other</option> <!-- Selection option in the dropwdown. Value is used for displaying category and filtering -->
     </select>
-    <button id="addBtn">Add Task</button>
-    <button id="filterBtn">Filter Tasks</button>
-    <button id="clearFilterBtn">Reset Filter</button>
+    <button id="addBtn">Add Task</button> <!-- Button with ID. Used to add a task.-->
+    <button id="filterBtn">Filter Tasks</button> <!-- Button for filtering the tasks based on category -->
+    <button id="clearFilterBtn">Reset Filter</button> <!-- Button for resetting the filters applied, then showing all tasks -->
 
-    <ul id="taskList"></ul>
-  </div>
+    <ul id="taskList"></ul> <!-- Empty unorderd list, used for appending li-elements as child elements through JS -->
+  </div> <!-- End of the container div -->
 
-  <script src="Task1.js"></script>
+  <script src="Task1.js"></script> <!-- Fetching JS-code from this file -->
 </body>
 </html>
