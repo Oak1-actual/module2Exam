@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing details</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="header.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lexend+Giga:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <img src="images/red-building-apartment.png" alt="large red building with sky in background">
+
+        <nav>
+            <!-- Nav Logos -->
+            <div class="nav-logos-container">
+                <img src="Icons/Sammen Logo.png" alt="Sammen logo">
+                <img src="Icons/Line 8.png" alt="vertical gray line">
+                <img src="Icons/UIB logo.png" alt="UiB Logo" id="uib-logo-nav">
+            </div>
+
+            <!-- Buttons & search icon -->
+            <div class="menyknapp-container">
+                <a href="index.html" class="button-support"><h3>Listings</h3></a>
+                <a href="details.html" class="button-support"><h3>Details</h3></a>
+                <a href="comparison.html" class="button-support"><h3>Compare</h3></a>
+            </div>
+        </nav>
+
+    </header>
+
+<main>
+
+    <!-- TOP SECTION TITLE -->
+    <section class="title-section">
+        <h1>Comparison</h1>
+    </section>
+
+    <div class="comparison-container-wrapper">
+
+        <!-- Column left-->
+        <div class="comparison-container">
+            <!--Dropdown menu 1 & 2-->
+            <div class="dropdown-menu-wrapper">
+                <div class="dropdown-menu">
+                    <h3>Brann Stadion</h3>
+                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
+                </div>
+                <div class="dropdown-menu">
+                    <h3>H247</h3>
+                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
+                </div>
+            </div>
+
+            <!-- Location & Apartment type -->
+            <h1>Brann Stadion</h1>
+            <h3>H324 One bedroom apartment</h3>
+
+            <!-- Location image -->
+            <img src="images/Brannstadion.png" alt="Image of Brann Stadion" id="comparison-img">
+
+            <!-- Price information -->
+             <div class="data-container" id="comparison-data">
+                <h2>Price</h2>
+                <h3>3800,-/month</h3>
+                <img src="Data Visualization/Diagram Data 2.png" alt="Price diagram" id="price-diagram">
+             </div>
+
+            <!-- Sqare meters information -->
+            <div class="data-container" id="comparison-data">
+                <h2>24 sqare meters</h2>
+             </div>
+
+            <!-- Privacy information -->
+            <div class="data-container" id="comparison-data">
+                <div class="img-text-horizontal">
+                    <img src="Icons/person icon.png" alt="person icon" id="privacy-icon">
+                    <h2>Private Bedroom</h2>
+                </div>
+             </div>
+
+            <!-- Neighbour Age Data -->
+            <div class="data-container" id="comparison-data">
+                <h2>Mean Neighbour Age</h2>
+                <h3>24 years old</h3>
+             </div>
+            
+             <!-- Nearest School Data -->
+            <div class="data-container" id="comparison-data">
+                <h2>Nearest School</h2>
+                <h3>HVL</h3>
+                <h3>0.7km</h3>
+             </div>
+
+            <!-- Facility Data -->
+             <div class="data-container">
+
+                <!-- Category 1: Wifi -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/wifi icon.png" alt="wifi icon">
+                    <h2>Wifi</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 2: Storage -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/storage icon.png" alt="Storage icon">
+                    <h2>Storage room</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 3: Laundry -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/laundry icon.png" alt="Laundry icon">
+                    <h2>Laundry room</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 4: Janitor -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Janitor icon.png" alt="Janitor icon">
+                    <h2>Janitor</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 5: Parking -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Car icon.png" alt="Car icon">
+                    <h2>Parking</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/Cross Icon.png" alt="Red Cross Icon">
+                </div>
+
+                <!-- Category 6: Bicycle parking -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Bicycle icon.png" alt="bicycle icon">
+                    <h2>Bicycle parking</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 7: Common Room -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Common room icon.png" alt="door icon">
+                    <h2>Common room</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 8: Elevator -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/elevator icon.png" alt="elevator icon">
+                    <h2>Elevator</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+             </div>
+
+            <!-- Rating data -->
+            <div class="data-container" id="centered-content">
+                <h2>Apartment rating</h2>
+                    <div class="rating-container">
+                        <img src="Icons/star filled icon.png" alt="filled star icon">
+                        <img src="Icons/star filled icon.png" alt="filled star icon">
+                        <img src="Icons/star filled icon.png" alt="filled star icon">
+                        <img src="Icons/star blank icon.png" alt="Empty star icon">
+                        <img src="Icons/star blank icon.png" alt="Empty star icon">
+                    </div>
+                <p class="suppport-text">37 reviews</p>
+            </div>
+            
+            <!-- Apply Button -->
+             <a href="#" class="button-primary"><h2>Apply for apartment</h2></a>
+
+        </div>
+        
+
+        <!-- Column Right-->
+        <div class="comparison-container">
+            <!--Dropdown menu 1 & 2-->
+            <div class="dropdown-menu-wrapper">
+                <div class="dropdown-menu">
+                    <h3>Fridalen</h3>
+                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
+                </div>
+                <div class="dropdown-menu">
+                    <h3>H312</h3>
+                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
+                </div>
+            </div>
+
+            <!-- Location & Apartment type -->
+            <h1>Fridalen</h1>
+            <h3>H312 Shared apartment</h3>
+
+            <!-- Location image -->
+            <img src="images/fridalen.png" alt="Image of Fridalen building" id="comparison-img">
+
+            <!-- Price information -->
+             <div class="data-container" id="comparison-data">
+                <h2>Price</h2>
+                <h3>5000,-/month</h3>
+                <img src="Data Visualization/Diagram Data 3.png" alt="Price diagram" id="price-diagram">
+             </div>
+
+            <!-- Sqare meters information -->
+            <div class="data-container" id="comparison-data">
+                <h2>28 sqare meters</h2>
+             </div>
+
+            <!-- Privacy information -->
+            <div class="data-container" id="comparison-data">
+                <div class="img-text-horizontal">
+                    <img src="Icons/people icon.png" alt="people icon" id="privacy-icon">
+                    <h2>Shared Bedroom: 2 people</h2>
+                </div>
+             </div>
+
+            <!-- Neighbour Age Data -->
+            <div class="data-container" id="comparison-data">
+                <h2>Mean Neighbour Age</h2>
+                <h3>28 years old</h3>
+             </div>
+            
+             <!-- Nearest School Data -->
+            <div class="data-container" id="comparison-data">
+                <h2>Nearest School</h2>
+                <h3>HVL</h3>
+                <h3>1.2km</h3>
+             </div>
+
+            <!-- Facility Data -->
+             <div class="data-container">
+
+                <!-- Category 1: Wifi -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/wifi icon.png" alt="wifi icon">
+                    <h2>Wifi</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 2: Storage -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/storage icon.png" alt="Storage icon">
+                    <h2>Storage room</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 3: Laundry -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/laundry icon.png" alt="Laundry icon">
+                    <h2>Laundry room</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 4: Janitor -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Janitor icon.png" alt="Janitor icon">
+                    <h2>Janitor</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 5: Parking -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Car icon.png" alt="Car icon">
+                    <h2>Parking</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/Cross Icon.png" alt="Red Cross Icon">
+                </div>
+
+                <!-- Category 6: Bicycle parking -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Bicycle icon.png" alt="bicycle icon">
+                    <h2>Bicycle parking</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+
+                <!-- Category 7: Common Room -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/Common room icon.png" alt="door icon">
+                    <h2>Common room</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/Cross Icon.png" alt="red cross Icon">
+                </div>
+
+                <!-- Category 8: Elevator -->
+                <div class="img-text-wrapper">
+                    <!--Left icon and text-->
+                    <img src="Icons/elevator icon.png" alt="elevator icon">
+                    <h2>Elevator</h2>
+                    <!--Right Check/Cross icon-->
+                    <img src="Icons/check icon.png" alt="Green Check Icon">
+                </div>
+             </div>
+
+            <!-- Rating data -->
+            <div class="data-container" id="centered-content">
+                <h2>Apartment rating</h2>
+                    <div class="rating-container">
+                        <img src="Icons/star filled icon.png" alt="filled star icon">
+                        <img src="Icons/star filled icon.png" alt="filled star icon">
+                        <img src="Icons/star blank icon.png" alt="Empty star icon">
+                        <img src="Icons/star blank icon.png" alt="Empty star icon">
+                        <img src="Icons/star blank icon.png" alt="Empty star icon">
+                    </div>
+                <p class="suppport-text">82 reviews</p>
+            </div>
+            
+            <!-- Apply Button -->
+             <a href="#" class="button-primary"><h2>Apply for apartment</h2></a>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <a href="#"><h2 class="footer-button">FAQ</h2></a>
+    <a href="#"><h2 class="footer-button">Services</h2></a>
+    <a href="#"><h2 class="footer-button">About</h2></a>
+    <a href="#"><h2 class="footer-button">Opening hours</h2></a>
+    <a href="#"><h2 class="footer-button">Contact</h2></a>
+</footer>
+    
+</body>
+
+</html>

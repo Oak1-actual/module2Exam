@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Apartmens</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="header.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lexend+Giga:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+
+        <img src="images/red-building-apartment.png" alt="large red building with sky in background">
+
+        <nav>
+            <!-- Nav Logos -->
+            <div class="nav-logos-container">
+                <img src="Icons/Sammen Logo.png" alt="Sammen logo">
+                <img src="Icons/Line 8.png" alt="vertical gray line">
+                <img src="Icons/UIB logo.png" alt="UiB Logo" id="uib-logo-nav">
+            </div>
+
+            <!-- Buttons & search icon -->
+            <div class="menyknapp-container">
+                <a href="index.html" class="button-support"><h3>Listings</h3></a>
+                <a href="details.html" class="button-support"><h3>Details</h3></a>
+                <a href="comparison.html" class="button-support"><h3>Compare</h3></a>
+            </div>
+        </nav>
+
+    </header>
+
+<!-- MAIN -->
+<main>
+    <!-- TOP SECTION TITLE -->
+    <section class="title-section">
+        <h1>Our Student Apartments</h1>
+    </section>
+
+    <!-- MAIN GRID W/ LISTINGS -->
+     <div class="body-grid">
+
+        <!-- Active filters -->
+        <div id="active-filters">
+
+            <!-- Filter 1 -->
+            <div>
+                <h3>3 stars & above</h3>
+                <img src="Icons/filter cross.png" alt="Cross icon">
+            </div>
+
+            <!-- Filter 2 -->
+            <div>
+                <h3>3800,-/month</h3>
+                <img src="Icons/filter cross.png" alt="Cross icon">
+            </div>
+            
+
+        </div>
+
+        <!-- SIDEBAR w/ Filters -->
+        <div id="sidebar-filters">
+
+            <!-- Embedded map -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4691.977055599521!2d5.3525881267767135!3d60.367044803200336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cf939026c541b%3A0x2bfea90d566fa549!2sBrann%20Stadion!5e0!3m2!1sen!2sno!4v1740741147511!5m2!1sen!2sno" 
+                width="100%" 
+                height="20%" 
+                style="border:0; border-radius: 8px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <!-- START FORM -->
+            <form action="#" method="post" class="sidebar-form">
+
+                <!-- LOCATION DROPDOWN -->
+                <div class="data-container">
+                    <div class="dropdown-menu">
+                        <h3>All locations</h3>
+                        <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
+                    </div>
+                </div>
+
+                <!-- PRICE RANGE INPUT -->
+                <div class="data-container">
+                    <label for="price"><h2>3800,- /month</h2></label>
+                    <input type="range" id="price">
+                </div>
+
+                <!-- RATING INPUT -->
+                <div class="data-container">
+                    <h2>Approval Rating</h2>
+                        <div class="rating-container">
+                            <img src="Icons/star filled icon.png" alt="filled star icon">
+                            <img src="Icons/star filled icon.png" alt="filled star icon">
+                            <img src="Icons/star filled icon.png" alt="filled star icon">
+                            <img src="Icons/star blank icon.png" alt="Empty star icon">
+                            <img src="Icons/star blank icon.png" alt="Empty star icon">
+                        </div>
+                </div>
+
+                <!-- PRIVACY INPUT -->
+                <div class="data-container">
+                    <div class="privacy-container">
+
+                        <!-- Shared bedroom -->
+                        <div class="radio-option">
+                            <label for="shared"><h3>Shared Bedroom</h3></label>
+                            <input type="radio" id="shared" name="privacy" value="shared">
+                        </div>
+                        <br>
+                        <!-- Private bedroom -->
+                        <div class="radio-option">
+                            <label for="private"><h3>Private Bedroom</h3></label>
+                            <input type="radio" id="private" name="privacy" value="private">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <input type="submit" value="Search">
+            </form>
+
+        </div>
+
+        <!-- FLEXBOX CARD CONTAINER -->
+        <div id="flexbox-w-cards">
+
+            <!-- CARD 1 -->
+            <div class="listing-card">
+                <img src="images/Brannstadion.png" alt="image of brann stadion">
+                <div>
+                    <h3>Brann Stadion</h3>
+                    <p>H234: One bedroom apartment.</p>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="listing-card">
+                <img src="images/Brannstadion.png" alt="Image of Brann stadion">
+                <div>
+                    <h3>Brann Stadion</h3>
+                    <p>H342: Studio apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="listing-card">
+                <img src="images/Brannstadion.png" alt="Image of brann stadion">
+                <div>
+                    <h3>Brann Stadion</h3>
+                    <p>H214: Studio apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="listing-card">
+                <img src="images/fridalen.png" alt="Image of Fridalen">
+                <div>
+                    <h3>Fridalen</h3>
+                    <p>H117: Shared apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="listing-card">
+                <img src="images/fridalen.png" alt="Image of Fridalen">
+                <div>
+                    <h3>Fridalen</h3>
+                    <p>H208: One bedroom apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="listing-card">
+                <img src="images/fantoft.png" alt="Image of Fantoft">
+                <div>
+                    <h3>Fantoft</h3>
+                    <p>H603: Shared apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 7 -->
+            <div class="listing-card">
+                <img src="images/fantoft.png" alt="Image of Fantoft">
+                <div>
+                    <h3>Fantoft</h3>
+                    <p>H502: Studio apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 8 -->
+            <div class="listing-card">
+                <img src="images/gyldenpris.png" alt="Image of gyldenpris building">
+                <div>
+                    <h3>Gyldenpris</h3>
+                    <p>H103 Studio apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 9 -->
+            <div class="listing-card">
+                <img src="images/gyldenpris.png" alt="Image of gyldenpris building">
+                <div>
+                    <h3>Gyldenpris</h3>
+                    <p>H203 Shared apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 10 -->
+            <div class="listing-card">
+                <img src="images/nattland.png" alt="Image of Nattland building">
+                <div>
+                    <h3>Nattland</h3>
+                    <p>H205 Shared apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 11 -->
+            <div class="listing-card">
+                <img src="images/nattland.png" alt="Image of Nattland building">
+                <div>
+                    <h3>Nattland</h3>
+                    <p>H301 Studio apartment</p>
+                </div>
+            </div>
+
+            <!-- CARD 12 -->
+            <div class="listing-card">
+                <img src="images/red-building-apartment.png" alt="Image of location">
+                <div>
+                    <h3>Location name</h3>
+                    <p>H000: apartment type</p>
+                </div>
+            </div>
+        
+        
+        </div>
+        <!-- Flexbox End -->
+
+     </div>
+     <!-- Sidebar and flexbox end (grid)-->
+    
+    <a href="#" id="load-more-button"><h2 class="button-secondary">Load more</h2></a>
+</main>
+
+<footer>
+    <a href="#"><h2 class="footer-button">FAQ</h2></a>
+    <a href="#"><h2 class="footer-button">Services</h2></a>
+    <a href="#"><h2 class="footer-button">About</h2></a>
+    <a href="#"><h2 class="footer-button">Opening hours</h2></a>
+    <a href="#"><h2 class="footer-button">Contact</h2></a>
+</footer>
+
+</body>
+
+</html>

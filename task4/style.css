@@ -1,0 +1,769 @@
+* {
+    box-sizing: border-box;
+}
+
+/* ----------- COLORS ----------- */
+
+:root {
+    --primary-color-red: #cf3c3a;  /* Rød */
+    --primary-color-orange: #EE7203; /* Oransje */
+    --primary-color-orange-hover: #FF7B44; /* Oransje:hover */ 
+    --primary-color-blue: #009ffe;  /* Blå */
+    --primary-color-blue-hover: #44B9FF;  /* Blå:hover */
+    --primary-color-green: #28a465; /* Grønn */
+
+    --secondary-color-beige: #ede9d0; /*  Beige */
+    --secondary-color-brown: #3a001e; /*  Brun */
+    --secondary-color-pink: #db9d84; /* Rosa */
+    --secondary-color-gray: #C7C7C7; /* Grå */
+
+    --color-black: #000000; /* Svart */
+    --color-white: #FFFFFF; /* Hvit */
+
+}
+
+/* ----------- EFFECTS: SHADOW ----------- */
+:root {
+    --default-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* ----------- TYPOGRAPHY ----------- */
+h1 {font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 600; line-height: normal; color: var(--color-black);}
+h2 {font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 500; line-height: normal; color: var(--color-black);}
+h3 {font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 400; line-height: normal; color: var(--color-black);}
+p {font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 400; line-height: normal; color: var(--color-black);}
+.support-text {font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 300; line-height: normal; color: var(--color-black);}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+/* General styling */
+
+a {
+    text-decoration: none;
+}
+
+/* SECTION TITLE */
+.title-section {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* MAIN LISTING SECTION */
+
+.body-grid {
+    padding: 0px 16px;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: auto auto;
+    grid-template-rows: fit-content auto;
+    column-gap: 40px;
+    row-gap: 0;
+
+    border: 2px solid red;
+}
+
+/* ACTIVE FILTERS Wrapper */
+#active-filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0px;
+    grid-column: 2;
+    width: fit-content;
+
+}
+
+/* Active filter item container */
+#active-filters div {
+    max-width: 100%;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+    gap: auto;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-gray);
+    box-shadow: var(--default-shadow);
+}
+
+#active-filters h3 {
+    font-size: 0.8rem;
+    margin: 2px 0px;
+}
+
+#active-filters img {
+    transform: scale(0.8);
+}
+
+#active-filters div:hover img {
+    transform: scale(1.05);
+}
+
+#active-filters div:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* --------------LISTINGS SIDEBAR --------------- */
+#sidebar-filters {
+    max-height: 100vh;
+
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-gray);
+
+    background-color: var(--primary-color-blue);
+    background: var(--secondary-color-beige);
+    box-shadow: var(--default-shadow);
+
+    outline: 2px solid red;
+}
+
+/*  SIDEBAR FORM */
+
+.sidebar-form {
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    overflow-y: hidden;
+}
+
+.sidebar-form h2 {
+    font-size: 1em;
+}
+
+/* Data container */
+.data-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    padding: 12px;
+    gap: 10px;
+
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-gray);
+}
+
+/* Datio Options Container */
+.radio-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Rating data */
+.rating-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.rating-container img {
+    height: 100%;
+    scale: 1/1;
+}
+
+/* Privacy Options */
+.privacy-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ----------- FLEXBOX w/ CARDS --------------- */
+
+#flexbox-w-cards {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-height: 100vh;
+    overflow-y: scroll;
+
+    column-gap: 2%;
+    row-gap: 40px;
+
+
+    outline: 2px solid red;
+}
+
+/* LISTING CARDS */
+.listing-card {
+    width: 20%;
+    min-width: 200px;
+    aspect-ratio: 1/1.2;
+
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-gray);
+    box-shadow: var(--default-shadow);
+
+    overflow: hidden;
+}
+
+.listing-card img {
+    object-fit: cover;
+    max-height: 50%;
+}
+
+.listing-card h3 {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.listing-card p {
+    font-size: 0.8rem;
+}
+
+/*listing card content (text)*/
+.listing-card div { 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-self: stretch;
+    padding: 0.5rem 24px;
+
+}
+
+.listing-card div h3 {
+    margin: 10px 0px;
+}
+
+.listing-card img {
+    height: 66%;
+    width: 100%;
+}
+
+.listing-card:hover {
+    outline: 2px solid var(--primary-color-blue-hover);
+    cursor: pointer;
+}
+
+/*---- LOAD MORE BUTTON --- */
+#load-more-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 16px;
+}
+
+#load-more-button a {
+    text-decoration: none;
+}
+
+/*-------------- FOOOTER ------------ */
+footer {
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    padding: 64px 16px;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin-top: 60px;
+
+    gap: 40px;
+
+    background-color: var(--primary-color-blue);
+}
+
+.footer-button {
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+}
+
+.footer-button:hover {
+    border-bottom: 2px solid var(--color-black);
+}
+
+/*------------------------------- Details Page ------------------------------*/
+
+/* ---- Image and room carousel ---- */
+
+.img-carousel-wrapper {
+    max-width: 100vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 40px;
+
+    padding: 0px 16px;
+}
+
+.details-building-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Carousel */
+.room-carousel-container {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.details-building-image {
+    max-width: 40vw;
+    object-fit: cover;
+
+    box-shadow: var(--default-shadow);
+}
+
+.room-carousel-card {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 30%;
+
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-gray);
+    background: var(--color-white);
+
+    box-shadow: var(--default-shadow);
+
+}
+
+.room-carousel-card h2 {
+    font-size: 1.5em;
+}
+
+.room-carousel-card p {
+    font-size: 0.8rem;
+}
+
+.room-carousel-card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+
+    border-radius: 8px 8px 0px 0px;
+}
+
+.room-carousel-card div {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 24px;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.room-carousel-card div h2, p {
+    margin: 0px 0px;
+}
+
+/* ---- DETAILS CONTENT 5col GRID --- */
+
+.details-grid-wrapper {
+    height: fit-content;
+    max-width: 100vw;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+
+    gap: 40px;
+    margin: 60px 16px;
+
+}
+
+/* General Detail Card styling */
+.details-grid-wrapper div {
+    border-radius: 8px;
+    background-color: var(--secondary-color-beige);
+    padding: 20px 16px;
+    box-shadow: var(--default-shadow);
+}
+
+.details-grid-wrapper div h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Unordered list styling */
+.details-grid-wrapper div ul {
+    height: 100%;
+    padding: 0 16px;
+    gap: 10px;
+}
+
+/* item 1: Sidemenu: Facility */
+.item1-sidemenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: auto;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.item1-sidemenu h1 {
+    margin: 0px;
+}
+
+.item1-sidemenu div {
+    height: max-content;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 0 0;
+    gap: 20px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.item1-sidemenu div h2 {
+    font-size: 1rem;
+    margin: 0px;
+}
+
+.item1-sidemenu img {
+    width: max-content;
+    height: max-content;
+    transform: scale(0.8);
+}
+
+/* item2: Apartment information */
+.item2-apartment {
+    display: flex;
+    flex-direction: column;
+}
+
+.item2-apartment ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* item3: Neighbourhood information */
+.item3-neighbourhood {
+    display: flex;
+    flex-direction: column;
+}
+
+.item3-neighbourhood ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* item4: Apartments description information */
+.item4-description {
+    grid-column-start: 2;
+    grid-column-end: 4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.item4-description a {
+    width: 100%;
+}
+
+/* Grid image */
+.item5-image {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 6;
+
+    background-image: url(images/brannstadion-livingroom.png);
+    object-fit: cover;
+}
+
+/* ------------- Rating Bar -------------*/
+
+.rating-container-full-w {
+    display: flex;
+    padding: 20px 16px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0px 16px;
+    box-sizing: border-box;
+
+    border-radius: 8px;
+    background-color: var(--secondary-color-beige);
+    box-shadow: var(--default-shadow);
+}
+
+.approval-rating-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border: 1px solid var(--secondary-color-gray);
+    border-radius: 8px;
+}
+
+.approval-rating-container img {
+    transform: scale(0.8);
+}
+
+
+/*------------ Review and map ------------------*/
+.review-map-grid-wrapper {
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    margin-top: 60px;
+    gap: 40px;
+    padding: 0px 16px;
+    margin-bottom: 60px;
+}
+
+/* Reviews */
+.review-container {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+
+    gap: 40px;
+    padding: 20px 24px;
+    
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-gray);
+    background: var(--color-white);
+    box-shadow: var(--default-shadow);
+
+    overflow-y: scroll;
+}
+
+.review-content {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-gray);
+    background: var(--color-white);
+}
+
+.review-content div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.review-content div p {
+    font-size: 0.8rem;
+}
+
+/* ------ SIMILAR APARTMENTS --------- */
+
+.similar-apartments-container {
+    width: 100%;
+    padding: 0px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 60px;
+    gap: 40px;
+}
+
+/*------------------------------ COMPARISON PAGE -----------------------------*/
+
+/* Wrapper for both colums of data */
+.comparison-container-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: center;
+    gap: 40px;
+}
+
+/*container for all content */
+.comparison-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    padding: 40px 24px;
+    gap: 40px;
+
+    border-radius: 8px;
+    background: var(--secondary-color-beige);
+    box-shadow: var(--default-shadow);
+}
+
+/* Font margin within container */
+.comparison-container h1, h2, h3 {
+    margin: 0;
+}
+
+/* Image in top of comparison container */
+.comparison-container #comparison-img {
+    width: 100%;
+    height: 216px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Allows two horizontal DD-menus */
+.dropdown-menu-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* Diagram img */
+#price-diagram {
+    transform: scale(0.7);
+}
+
+/*Data Container modification */
+.data-container[id="comparison-data"] {
+    text-align: center;
+}
+
+/* Container for horizontal img/text */
+.img-text-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Privacy Data Icon */
+.img-text-horizontal #privacy-icon {
+    width: 2rem;
+    height: 2rem;
+}
+.img-text-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img-text-wrapper h2 {
+    float: left;
+}
+
+.img-text-wrapper img {
+    float: right;
+}
+
+/* Centered content */
+.data-container[id="centered-content"] {
+    align-items: center;
+}
+
+/* Apply button */
+.comparison-container a {
+    width: 100%;
+}
+
+
+/* ---------- INPUTS ------------ */
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+
+    border-radius: 8px;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+}
+
+.dropdown-menu img {
+    transform: rotate(180deg) scale(0.8);
+}
+
+.dropdown-menu:hover {
+    background-color: var(--primary-color-blue-hover);
+    cursor: pointer;
+}
+
+/* RANGE SLIDER */
+
+.data-container input[type="range"] {
+    width: 100%;
+}
+
+/* RADIO BUTTON */
+.radio-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+}
+
+.radio-option input[type="radio"]:hover {
+    cursor: pointer;
+}
+
+/* SUBMIT BUTTON */
+.sidebar-form input[type="submit"] {
+    width: 100%;
+    
+    background-color: var(--primary-color-orange);
+    border: none;
+    padding: 20px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+
+    font-family: "Plus Jakarta Sans";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.sidebar-form input[type="submit"]:hover {
+    background-color: var(--primary-color-orange-hover);
+}
