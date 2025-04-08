@@ -15,53 +15,41 @@ header nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
-    height: fit-content;
+    height: 15vh;
     padding: 20px 16px;
     box-sizing: border-box;
     background-color: var(--secondary-color-beige);
 }
 
-.nav-logos-container {
+nav div {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
-    max-width: 50%;
-    flex-shrink: 1;
     height: 100%;
-    
     gap: 20px;
 }
 
-.nav-logos-container img {
-    object-fit: contain;
-    width: fit-content;
-    display: flex;
-    max-height: 48px;
-    min-height: 48px;
-    max-width: 30%;
+nav div img {
+    height: 60%;
 }
 
 #uib-logo-nav {
     height: 100%;
 }
 
-
-
 /* HEADER: NAV: BUTTONS & ICON */
-.menyknapp-container {
+.button-icon-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    width: fit-content;
-
-    gap: 20px;
+    flex-direction: row;
+    gap: 5vw;
 }
 
-.button-icon-wrapper a h3 {
-    font-size: 1rem;
-    max-height: 48px;
+#search-icon-wrapper {
+    height: fit-content;
+}
+
+#search-icon-wrapper img {
+    min-height: 100%;
 }
