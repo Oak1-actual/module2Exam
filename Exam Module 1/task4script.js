@@ -5,13 +5,14 @@ let listings = [];
 let locationFiltered = "allLocations";
 let priceFiltered = "";
 let privacyFiltered = false; // false = shared
+const activeFilters = [locationFiltered, priceFiltered, priceFiltered];
 
 // Load page
 window.onload = function () {
   listingsFromAPI();
 };
 
-// fetch listing data
+// fetch listing data, call functions.
 function listingsFromAPI() {
   fetch("https://api.npoint.io/eb3c116538e7dcbfc7bf")
     .then(response => response.json())
@@ -19,6 +20,7 @@ function listingsFromAPI() {
       listings = Object.values(data.listings);; // Stores data in global variable as array.
       renderListingCards();
       populateLocationDropdown(listings);
+      storeSelectedLocation();
     });
 }
 
@@ -75,5 +77,13 @@ function populateLocationDropdown(listings) {
       locationsOptions.push(locationOption.value);
       locationFilterDropdown.appendChild(locationOption);
     }
+  })
+}
+
+function storeSelectedLocation() {
+  const inputElement = document.getElementById("locFiltDropDown");
+  inputElement.addEventListener("change", function() {
+    locationFiltered = this.value;
+    console.log(locationFiltered);
   })
 }
