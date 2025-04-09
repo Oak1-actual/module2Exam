@@ -10,6 +10,7 @@ const activeFilters = [locationFiltered, priceFiltered, priceFiltered];
 // Load page
 window.onload = function () {
   listingsFromAPI();
+  displayMaxPrice();
 };
 
 // fetch listing data, call functions.
@@ -21,6 +22,7 @@ function listingsFromAPI() {
       renderListingCards();
       populateLocationDropdown(listings);
       storeSelectedLocation();
+      storeSelectedPrice();
     });
 }
 
@@ -84,6 +86,28 @@ function storeSelectedLocation() {
   const inputElement = document.getElementById("locFiltDropDown");
   inputElement.addEventListener("change", function() {
     locationFiltered = this.value;
-    console.log(locationFiltered);
+    console.log(`Location filtered: ${locationFiltered}`);
   })
+}
+
+function storeSelectedPrice() {
+  const inputElement = document.getElementById("price"); // range input
+  inputElement.addEventListener("change", function() {
+    priceFiltered = this.value;
+    console.log(`max price: ${priceFiltered}`);
+    displayMaxPrice(); // updates displayed price
+  })
+}
+
+function displayMaxPrice() {
+  const slider = document.getElementById("price"); // range input
+  const displayElement = document.getElementById("priceLabel"); // label/h2
+
+  // displays default slider value
+  displayElement.textContent = `${slider.value} kr /month`;
+
+  // Oppdater når brukeren drar på slideren
+  slider.addEventListener("input", function () {
+    displayElement.textContent = `${this.value} kr /month`;
+  });
 }
