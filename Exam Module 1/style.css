@@ -720,7 +720,7 @@ footer {
 }
 
 /* SUBMIT BUTTON */
-.sidebar-form input[type="submit"] {
+.sidebar-form #submitBtn {
     width: 100%;
     
     background-color: var(--primary-color-orange);
