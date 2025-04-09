@@ -2,8 +2,8 @@
 let listings = [];
 
 // Global selected filters
-let locationFiltered = "allLocations";
-let priceFiltered = "";
+let locationFiltered = document.getElementById("locFiltDropDown").value;
+let priceFiltered = document.getElementById("price").value;
 let privacyFilteredKitchen = false; // false = shared
 let privacyFilteredBathroom = false; // false = shared
 
@@ -13,6 +13,7 @@ const activeFilters = [locationFiltered, priceFiltered, priceFiltered, privacyFi
 window.onload = function () {
   listingsFromAPI();
   displayMaxPrice();
+  applyFilters();
 };
 
 // fetch listing data, call functions.
@@ -25,7 +26,6 @@ function listingsFromAPI() {
       populateLocationDropdown(listings);
       storeSelectedLocation();
       storeSelectedPrice();
-      applyFilters();
     });
 }
 
@@ -140,13 +140,13 @@ function renderActiveFilters() {
     let activeFilterDiv = document.createElement("div");
     // Create h3
     let activeFilterText = document.createElement("h3");
-    if (filter === locationFiltered) {
+    if (filter === locationFiltered) { // Location
       activeFilterText.textContent = locationFiltered;
-    } else if ( filter === priceFiltered) {
+    } else if ( filter === priceFiltered) { // Price
       activeFilterText.textContent = `${priceFiltered},-/month`
-    } else if (filter === privacyFilteredBathroom && privacyFilteredBathroom == true) {
+    } else if (filter === privacyFilteredBathroom && privacyFilteredBathroom == true) { // Privacy Bathroom
       activeFilterText.textContent = `private bathroom`
-    } else if (filter === privacyFilteredKitchen && privacyFilteredKitchen == true) {
+    } else if (filter === privacyFilteredKitchen && privacyFilteredKitchen == true) { // Privacy Kitchen
       activeFilterText.textContent = `private kitchen`
     }
     // create img (cross icon)
@@ -156,11 +156,18 @@ function renderActiveFilters() {
     // append to div => container
     activeFilterDiv.appendChild(activeFilterText);
     activeFilterDiv.appendChild(activeFilterIcon);
-    activeFiltersContainer.appendChild(activeFilterIcon);
+    activeFiltersContainer.appendChild(activeFilterDiv);
   })
 }
 
 function applyFilters() {
   const sidebarSearchButton = document.getElementById("submitBtn");
-  sidebarSearchButton.addEventListener("click", renderActiveFilters());
+
+  sidebarSearchButton.addEventListener("click", function () {
+    storeSelectedLocation();
+    storeSelectedPrice();
+    storeSelectedPrivacy();
+    renderActiveFilters();
+    console.log("Search button clicked!");
+  });
 }
