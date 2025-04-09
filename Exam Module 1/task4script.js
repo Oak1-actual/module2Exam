@@ -4,8 +4,8 @@ let listings = [];
 // Global selected filters
 let locationFiltered = document.getElementById("locFiltDropDown").value;
 let priceFiltered = document.getElementById("price").value;
-let privacyFilteredKitchen = false; // false = shared
-let privacyFilteredBathroom = false; // false = shared
+let privacyFilteredKitchen = document.getElementById("bathroomCheckbox").checked;// false = shared
+let privacyFilteredBathroom = document.getElementById("bathroomCheckbox").checked; // false = shared
 
 const activeFilters = [locationFiltered, priceFiltered, priceFiltered, privacyFilteredBathroom, privacyFilteredKitchen];
 
@@ -107,11 +107,11 @@ function displayMaxPrice() {
   const displayElement = document.getElementById("priceLabel"); // label/h2
 
   // displays default slider value
-  displayElement.textContent = `${slider.value} kr /month`;
+  displayElement.textContent = `${slider.value},-/month`;
 
   // Updates when slider glides
   slider.addEventListener("input", function () {
-    displayElement.textContent = `${this.value} kr /month`;
+    displayElement.textContent = `${this.value},-/month`;
   });
 }
 
@@ -130,37 +130,55 @@ function storeSelectedPrivacy() {
 document.getElementById("kitchenCheckbox").addEventListener("change", storeSelectedPrivacy);
 document.getElementById("bathroomCheckbox").addEventListener("change", storeSelectedPrivacy);
 
+// Renders the active filters, based on input from the sidebar.
 function renderActiveFilters() {
   const activeFiltersContainer = document.getElementById("active-filters");
   activeFiltersContainer.innerHTML = "";
 
-  const activeFilters = [locationFiltered, priceFiltered, privacyFilteredBathroom, privacyFilteredKitchen];
-  activeFilters.forEach(filter => {
-    // create div
-    let activeFilterDiv = document.createElement("div");
-    // Create h3
-    let activeFilterText = document.createElement("h3");
-    if (filter === locationFiltered) { // Location
-      activeFilterText.textContent = locationFiltered;
-    } else if ( filter === priceFiltered) { // Price
-      activeFilterText.textContent = `${priceFiltered},-/month`
-    } else if (filter === privacyFilteredBathroom && privacyFilteredBathroom == true) { // Privacy Bathroom
-      activeFilterText.textContent = `private bathroom`
-    } else if (filter === privacyFilteredKitchen && privacyFilteredKitchen == true) { // Privacy Kitchen
-      activeFilterText.textContent = `private kitchen`
-    }
-    // create img (cross icon)
-    let activeFilterIcon = document.createElement("img");
-    activeFilterIcon.src = "Icons/filter cross.png";
-    activeFilterIcon.alt = "Cross icon";
-    // append to div => container, if privacy is selected and location is selected.
-    if (activeFilterText.textContent.trim() !== "" && activeFilterText.textContent.trim() !== "All locations") {
-      activeFilterDiv.appendChild(activeFilterText);
-      activeFilterDiv.appendChild(activeFilterIcon);
-      activeFiltersContainer.appendChild(activeFilterDiv);
-    }
-  })
+  // Location
+  if (locationFiltered && locationFiltered !== "All locations") {
+    const filterDiv = createFilterDiv(locationFiltered);
+    activeFiltersContainer.appendChild(filterDiv);
+  }
+  // Price
+  if (priceFiltered) {
+    const filterDiv = createFilterDiv(`${priceFiltered},-/month`);
+    activeFiltersContainer.appendChild(filterDiv);
+  }
+  // Privacy bathroom
+  if (privacyFilteredBathroom) {
+    const filterDiv = createFilterDiv("private bathroom");
+    activeFiltersContainer.appendChild(filterDiv);
+  }
+  // Privacy kitchen
+  if (privacyFilteredKitchen) {
+    const filterDiv = createFilterDiv("private kitchen");
+    activeFiltersContainer.appendChild(filterDiv);
+  }
 }
+
+// Resuable function for creating filter-div
+function createFilterDiv(text) {
+  const div = document.createElement("div");
+  const h3 = document.createElement("h3");
+  const img = document.createElement("img");
+
+  h3.textContent = text;
+  img.src = "Icons/filter cross.png";
+  img.alt = "Cross icon";
+
+  // Removes filter if cross icon is clicked.
+  img.addEventListener("click", function () {
+    removeActiveFilter(text); // Uses the text to identify corret div (filter).
+  });
+
+  // append content to div
+  div.appendChild(h3);
+  div.appendChild(img);
+  return div;
+}
+
+
 
 function applyFilters() {
   const sidebarSearchButton = document.getElementById("submitBtn");
@@ -171,5 +189,26 @@ function applyFilters() {
     storeSelectedPrivacy();
     renderActiveFilters();
     console.log("Search button clicked!");
+    document.getElementById("active-filters").scrollIntoView({ behavior: "smooth" }); // scrolls to filters
   });
+}
+
+function removeActiveFilter(text) {
+  // Checks which filter was clicked
+  if (text === locationFiltered) {
+    locationFiltered = "All locations";
+    document.getElementById("locFiltDropDown").value = "All locations";
+  } else if (text.includes(",-/month")) {
+    priceFiltered = "";
+    document.getElementById("price").value = 10000;
+    displayMaxPrice(); // Updates price display in sidebar
+  } else if (text === "private bathroom") {
+    privacyFilteredBathroom = false;
+    document.getElementById("bathroomCheckbox").checked = false;
+  } else if (text === "private kitchen") {
+    privacyFilteredKitchen = false;
+    document.getElementById("kitchenCheckbox").checked = false;
+  }
+
+  renderActiveFilters(); // updates active filters
 }
