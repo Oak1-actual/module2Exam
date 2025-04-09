@@ -153,10 +153,12 @@ function renderActiveFilters() {
     let activeFilterIcon = document.createElement("img");
     activeFilterIcon.src = "Icons/filter cross.png";
     activeFilterIcon.alt = "Cross icon";
-    // append to div => container
-    activeFilterDiv.appendChild(activeFilterText);
-    activeFilterDiv.appendChild(activeFilterIcon);
-    activeFiltersContainer.appendChild(activeFilterDiv);
+    // append to div => container, if privacy is selected and location is selected.
+    if (activeFilterText.textContent.trim() !== "" && activeFilterText.textContent.trim() !== "All locations") {
+      activeFilterDiv.appendChild(activeFilterText);
+      activeFilterDiv.appendChild(activeFilterIcon);
+      activeFiltersContainer.appendChild(activeFilterDiv);
+    }
   })
 }
 
