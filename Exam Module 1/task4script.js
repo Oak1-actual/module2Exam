@@ -25,6 +25,7 @@ function listingsFromAPI() {
       populateLocationDropdown(listings);
       storeSelectedLocation();
       storeSelectedPrice();
+      applyFilters();
     });
 }
 
@@ -132,7 +133,7 @@ document.getElementById("bathroomCheckbox").addEventListener("change", storeSele
 function renderActiveFilters() {
   const activeFiltersContainer = document.getElementById("active-filters");
   activeFiltersContainer.innerHTML = "";
-  
+
   const activeFilters = [locationFiltered, priceFiltered, privacyFilteredBathroom, privacyFilteredKitchen];
   activeFilters.forEach(filter => {
     // create div
@@ -157,4 +158,9 @@ function renderActiveFilters() {
     activeFilterDiv.appendChild(activeFilterIcon);
     activeFiltersContainer.appendChild(activeFilterIcon);
   })
+}
+
+function applyFilters() {
+  const sidebarSearchButton = document.getElementById("submitBtn");
+  sidebarSearchButton.addEventListener("click", renderActiveFilters());
 }
