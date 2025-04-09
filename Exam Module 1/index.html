@@ -89,13 +89,12 @@
             <!-- START FORM -->
             <form action="#" method="post" class="sidebar-form">
 
-                <!-- LOCATION DROPDOWN -->
+                <!-- LOCATION DROPDOWN, JS -->
                 <div class="data-container">
-                    <div class="dropdown-menu">
-                        <h3>All locations</h3>
-                        <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
-                    </div>
-                </div>
+                    <select name="location-filter-dropdown" id="locFiltDropDown" class="dropdown-menu">
+                        <option value="allLocations">All locations</option>
+                    </select>
+                 </div>
 
                 <!-- PRICE RANGE INPUT -->
                 <div class="data-container">
@@ -140,18 +139,7 @@
         </div>
 
         <!-- FLEXBOX CARD CONTAINER -->
-        <div id="flexbox-w-cards">
-
-            <!-- CARD 1 -->
-            <div class="listing-card">
-                <img src="images/Brannstadion.png" alt="image of brann stadion">
-                <div>
-                    <h3>Brann Stadion</h3>
-                    <p>H234: One bedroom apartment.</p>
-                </div>
-            </div>
-            
-        </div>
+        <div id="flexbox-w-cards"></div>
         <!-- Flexbox End -->
 
      </div>
