@@ -1,5 +1,6 @@
 // Global data
 let listings = [];
+let storedCardId = "";
 
 // Global selected filters
 let locationFiltered = document.getElementById("locFiltDropDown").value;
@@ -29,7 +30,7 @@ function listingsFromAPI() {
     });
 }
 
-// Display listing cards w/API data
+// Creates and displays listing cards w/API data
 function renderListingCards() {
   let flexbox = document.getElementById("flexbox-w-cards");
   flexbox.innerHTML = "";
@@ -44,6 +45,13 @@ function renderListingCards() {
     listingCard.dataset.price = listing.pricePerMonth; // will store as string, convert to number later.
     listingCard.dataset.kitchen = listing.housingConditions.privateKitchen; // true/false, as string.
     listingCard.dataset.bathroom = listing.housingConditions.privateBathroom; // true/false, as string.
+    listingCard.dataset.id = listing.id;
+
+
+    // Attach event listener. Calls function to store card id in global variable for later use.
+    listingCard.addEventListener("click", function() {
+      storeCardId(listing.id)
+    });
 
     // create text content div container
     let listingCardContentDiv = document.createElement("div");
@@ -216,7 +224,7 @@ function createFilterDiv(text) {
 }
 
 
-
+// Is called when search button is clicked. Filters cards in flexbox and displays active filters.
 function applyFilters() {
   const sidebarSearchButton = document.getElementById("submitBtn");
 
@@ -231,6 +239,7 @@ function applyFilters() {
   });
 }
 
+// Is call when user crosses out active filter. Resets filter and removes display.
 function removeActiveFilter(text) {
   // Checks which filter was clicked
   if (text === locationFiltered) {
@@ -252,6 +261,7 @@ function removeActiveFilter(text) {
   filterListings(); // updates flexbox with filtered cards
 }
 
+// Strutures logic for filtering which cards to show in flexbox.
 function filterListings() {
   const cards = document.querySelectorAll(".listing-card");
 
@@ -294,3 +304,8 @@ function filterListings() {
   })
 }
 
+// Is called when card is clicked. Stores card ID in global variable for later use.
+function storeCardId(divId) {
+  storedCardId = divId;
+  console.log(`this.id = ${divId}. Id stored in global variable = ${storedCardId}`)
+}
