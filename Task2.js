@@ -31,6 +31,6 @@ function confirmBooking() {
 function resetForm() {
     document.getElementById('room-type').selectedIndex = 0;
     document.getElementById('nights').value = 1; // Changed to 1, since 0 doesn't make sence to book.
-    document.getElementById('confirmation-msg').textContent = ''; // Changed from .innerText to .textContent
+    document.getElementById('confirmation-msg').textContent = ''; // Changed from .innerText to .textContent for consistency.
     document.getElementById('total-cost').textContent = 0; //added this line to reset total cost aswell
 }

@@ -4,7 +4,7 @@ let listings = [];
 // Global selected filters
 let locationFiltered = document.getElementById("locFiltDropDown").value;
 let priceFiltered = document.getElementById("price").value;
-let privacyFilteredKitchen = document.getElementById("bathroomCheckbox").checked;// false = shared
+let privacyFilteredKitchen = document.getElementById("kitchenCheckbox").checked;// false = shared
 let privacyFilteredBathroom = document.getElementById("bathroomCheckbox").checked; // false = shared
 
 const activeFilters = [locationFiltered, priceFiltered, priceFiltered, privacyFilteredBathroom, privacyFilteredKitchen];
@@ -39,6 +39,12 @@ function renderListingCards() {
     let listingCard = document.createElement("div");
     listingCard.className = "listing-card";
 
+    // attach data for filtering functionality
+    listingCard.dataset.location = listing.address.city;
+    listingCard.dataset.price = listing.pricePerMonth; // will store as string, convert to number later.
+    listingCard.dataset.kitchen = listing.housingConditions.privateKitchen; // true/false, as string.
+    listingCard.dataset.bathroom = listing.housingConditions.privateBathroom; // true/false, as string.
+
     // create text content div container
     let listingCardContentDiv = document.createElement("div");
 
@@ -52,11 +58,39 @@ function renderListingCards() {
 
     // Add Text to card
     let listingCardText = document.createElement("p");
-    listingCardText.textContent = `housing type: ${listing.type}`;
+    listingCardText.textContent = `Housing type: ${listing.type}`;
+
+    // Add price to card
+    let listingCardPrice = document.createElement("p");
+    listingCardPrice.textContent = `Price: ${listing.pricePerMonth},-/month`;
+
+    // Add location to card
+    let listingCardLocation = document.createElement("p");
+    listingCardLocation.textContent = `Location: ${listing.address.city}`;
+
+    // Add kitchen privacy
+    let listingCardKitchen = document.createElement("p");
+    if (listing.housingConditions.privateKitchen == true) {
+      listingCardKitchen.textContent = `Private kitchen: Yes`
+    } else {
+      listingCardKitchen.textContent = `Private kitchen: No`
+    }
+
+    // Add bathroom privacy
+    let listingCardBathroom = document.createElement("p");
+    if (listing.housingConditions.privateBathroom == true) {
+      listingCardBathroom.textContent = `Private bathroom: Yes`
+    } else {
+      listingCardBathroom.textContent = `Private bathroom: No`
+    }
 
     // Append to card
     listingCardContentDiv.appendChild(listingCardTitle);
     listingCardContentDiv.appendChild(listingCardText);
+    listingCardContentDiv.appendChild(listingCardPrice);
+    listingCardContentDiv.appendChild(listingCardLocation);
+    listingCardContentDiv.appendChild(listingCardKitchen);
+    listingCardContentDiv.appendChild(listingCardBathroom);
     listingCard.appendChild(listingCardImage);
     listingCard.appendChild(listingCardContentDiv);
 
@@ -141,8 +175,11 @@ function renderActiveFilters() {
     activeFiltersContainer.appendChild(filterDiv);
   }
   // Price
-  if (priceFiltered) {
+  if (priceFiltered && priceFiltered != 10000) {
     const filterDiv = createFilterDiv(`${priceFiltered},-/month`);
+    activeFiltersContainer.appendChild(filterDiv);
+  } else if (priceFiltered == 10000) {
+    const filterDiv = createFilterDiv(`All prices`);
     activeFiltersContainer.appendChild(filterDiv);
   }
   // Privacy bathroom
@@ -188,8 +225,9 @@ function applyFilters() {
     storeSelectedPrice();
     storeSelectedPrivacy();
     renderActiveFilters();
-    console.log("Search button clicked!");
+    filterListings();
     document.getElementById("active-filters").scrollIntoView({ behavior: "smooth" }); // scrolls to filters
+
   });
 }
 
@@ -199,7 +237,7 @@ function removeActiveFilter(text) {
     locationFiltered = "All locations";
     document.getElementById("locFiltDropDown").value = "All locations";
   } else if (text.includes(",-/month")) {
-    priceFiltered = "";
+    priceFiltered = 10000;
     document.getElementById("price").value = 10000;
     displayMaxPrice(); // Updates price display in sidebar
   } else if (text === "private bathroom") {
@@ -210,5 +248,49 @@ function removeActiveFilter(text) {
     document.getElementById("kitchenCheckbox").checked = false;
   }
 
-  renderActiveFilters(); // updates active filters
+  renderActiveFilters(); // updates active filters that are displayed
+  filterListings(); // updates flexbox with filtered cards
 }
+
+function filterListings() {
+  const cards = document.querySelectorAll(".listing-card");
+
+  console.log(`price filtered: ${priceFiltered}, datatype: ${typeof priceFiltered}`);
+
+  cards.forEach(card => {
+    // data for card
+    const cardLocation = card.dataset.location;
+    const cardPrice = Number(card.dataset.price);
+    const cardKitchen = card.dataset.kitchen;
+    const cardBathroom = card.dataset.bathroom;
+    console.log(`cardBathroom datatype = ${typeof cardBathroom}`)
+    
+    let show = true;
+
+    //location
+    if (cardLocation != locationFiltered && locationFiltered != "All locations") {
+      show = false;
+    };
+    // price 
+    if (cardPrice > Number(priceFiltered)) {
+      show = false;
+    }
+    // private kitchen
+    if (cardKitchen == "false" && privacyFilteredKitchen == true) {
+      show = false;
+    }
+    // private bathroom
+    if (cardBathroom == "false" && privacyFilteredBathroom == true) {
+      show = false;
+    }
+    // Adjust display
+    if (show === false) {
+      card.style.display = "none";
+    } else {
+      card.style.display = "flex";
+    }
+
+    console.log(`cardPrice: ${cardPrice}. priceFiltered: ${priceFiltered}. show = ${show}`)
+  })
+}
+
