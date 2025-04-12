@@ -8,8 +8,6 @@ let priceFiltered = document.getElementById("price").value;
 let privacyFilteredKitchen = document.getElementById("kitchenCheckbox").checked;// false = shared
 let privacyFilteredBathroom = document.getElementById("bathroomCheckbox").checked; // false = shared
 
-const activeFilters = [locationFiltered, priceFiltered, priceFiltered, privacyFilteredBathroom, privacyFilteredKitchen];
-
 // Load page
 window.onload = function () {
   listingsFromAPI();
@@ -50,7 +48,8 @@ function renderListingCards() {
 
     // Attach event listener. Calls function to store card id in global variable for later use.
     listingCard.addEventListener("click", function() {
-      storeCardId(listing.id)
+      storeCardId(listing.id);
+      loadDetailPage();
     });
 
     // create text content div container
@@ -127,6 +126,7 @@ function populateLocationDropdown(listings) {
   })
 }
 
+// Stores selected location in global variable
 function storeSelectedLocation() {
   const inputElement = document.getElementById("locFiltDropDown");
   inputElement.addEventListener("change", function() {
@@ -135,6 +135,7 @@ function storeSelectedLocation() {
   })
 }
 
+// stores selected price in global variable
 function storeSelectedPrice() {
   const inputElement = document.getElementById("price"); // range input
   inputElement.addEventListener("change", function() {
@@ -144,6 +145,7 @@ function storeSelectedPrice() {
   })
 }
 
+// Displays price input
 function displayMaxPrice() {
   const slider = document.getElementById("price"); // range input
   const displayElement = document.getElementById("priceLabel"); // label/h2
@@ -157,6 +159,7 @@ function displayMaxPrice() {
   });
 }
 
+// Stores selected privacy in global variables // Can remove this?? obselete function?
 function storeSelectedPrivacy() {
   const kitchenPrivacyCheckbox = document.getElementById("kitchenCheckbox");
   const bathroomPrivacyCheckbox = document.getElementById("bathroomCheckbox");
@@ -306,6 +309,12 @@ function filterListings() {
 
 // Is called when card is clicked. Stores card ID in global variable for later use.
 function storeCardId(divId) {
-  storedCardId = divId;
+  const encodedId = encodeURIComponent(divId);
+  storedCardId = encodedId;
   console.log(`this.id = ${divId}. Id stored in global variable = ${storedCardId}`)
+}
+
+// sends user to detail page. Card ID is stored in url.
+function loadDetailPage() {
+  window.location.href = `details.html?id=${storedCardId}`;
 }

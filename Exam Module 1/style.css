@@ -309,7 +309,7 @@ footer {
 .room-carousel-container {
     width: 100%;
     display: inline-flex;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 .details-building-image {
@@ -323,7 +323,7 @@ footer {
     display: flex;
     flex-direction: column;
 
-    max-width: 30%;
+    width: 50%;
 
     border-radius: 8px;
     border: 1px solid var(--secondary-color-gray);
@@ -401,11 +401,12 @@ footer {
 .item1-sidemenu {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     gap: auto;
     grid-row-start: 1;
     grid-row-end: 3;
 }
+
 
 .item1-sidemenu h1 {
     margin: 0px;
@@ -483,8 +484,14 @@ footer {
     grid-column-start: 4;
     grid-column-end: 6;
 
-    background-image: url(images/brannstadion-livingroom.png);
-    object-fit: cover;
+    display: flex;
+}
+
+.item5-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* eller "contain" avhengig av hva du ønsker */
+    display: block;     /* fjerner whitespace fra inline img */
 }
 
 /* ------------- Rating Bar -------------*/
@@ -510,6 +517,9 @@ footer {
     
     border: 1px solid var(--secondary-color-gray);
     border-radius: 8px;
+
+    padding: 20px;
+    gap: 10px;
 }
 
 .approval-rating-container img {
