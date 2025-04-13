@@ -4,13 +4,13 @@ window.onload = function () {
     fetchObjectFromAPI(urlId);
   };
 
-// Returns the id from url
+// Returns the housing id from url
 function getIdFromUrl() {
 const params = new URLSearchParams(window.location.search);
 return params.get("id");
 }
 
-// Takes in url id. Fetches correct housing object from API and returns it as object.
+// Takes in url id. Fetches correct housing object from API and returns it as object, then renders HTML.
 function fetchObjectFromAPI(urlId) {
     fetch(`https://api.npoint.io/eb3c116538e7dcbfc7bf/listings/${urlId}`)
       .then(response => response.json())
@@ -165,6 +165,7 @@ function renderFacilityList(data) {
 
 function alertNotAvailable() {
   alert("This is not available at the moment. You will be redirected to the comparison page.");
+  loadNewPage();
 }
 
 function renderApprovalRatings(data) {
@@ -231,4 +232,9 @@ function renderReviews(data) {
     // Appends review to container
     container.appendChild(reviewDiv);
   }
+}
+
+// sends user to comparison page. Card ID is stored in url.
+function loadNewPage() {
+  window.location.href = `comparison.html?id=${getIdFromUrl()}`;
 }
