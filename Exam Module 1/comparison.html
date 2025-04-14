@@ -53,299 +53,147 @@
     <div class="comparison-container-wrapper">
 
         <!-- Column left-->
-        <div class="comparison-container">
+        <div class="comparison-container" id="comparison-container-left">
             <!--Dropdown menu 1 & 2-->
             <div class="dropdown-menu-wrapper">
-                <div class="dropdown-menu">
-                    <h3>Brann Stadion</h3>
-                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
-                </div>
-                <div class="dropdown-menu">
-                    <h3>H247</h3>
-                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
-                </div>
+                <select name="location-filter-dropdown" id="locationCompared-left-col" class="dropdown-menu" style="display: none;">
+                    <option value="location">Location</option>
+                </select>
+                <select name="location-filter-dropdown" id="HousingNumberCompared-left-col" class="dropdown-menu" onchange="handleHousingSelection('HousingNumberCompared-left-col')">
+                    <option value="housing-number">Housing number</option>
+                </select>
             </div>
 
             <!-- Location & Apartment type -->
-            <h1>Brann Stadion</h1>
-            <h3>H324 One bedroom apartment</h3>
+            <h1 id="left-col-title">Choose housing</h1>
+            <h3 id="left-col-type"></h3>
 
             <!-- Location image -->
-            <img src="images/Brannstadion.png" alt="Image of Brann Stadion" id="comparison-img">
+            <img src="images/Brannstadion.png" alt="Image of Brann Stadion" id="comparison-img-left" class="comparison-img">
 
             <!-- Price information -->
              <div class="data-container" id="comparison-data">
                 <h2>Price</h2>
-                <h3>3800,-/month</h3>
-                <img src="Data Visualization/Diagram Data 2.png" alt="Price diagram" id="price-diagram">
+                <h3 id="price-display-left-col"></h3>
              </div>
 
             <!-- Sqare meters information -->
             <div class="data-container" id="comparison-data">
-                <h2>24 sqare meters</h2>
+                <h2 id="sqm-display-left-col">sqare meters</h2>
              </div>
 
-            <!-- Privacy information -->
+            <!-- Privacy information kitchen -->
             <div class="data-container" id="comparison-data">
                 <div class="img-text-horizontal">
-                    <img src="Icons/person icon.png" alt="person icon" id="privacy-icon">
-                    <h2>Private Bedroom</h2>
+                    <img src="Icons/person icon.png" alt="person icon" id="privacyKitchen-icon-left-col" class="privacy-icon">
+                    <h2 id="kitchen-display-left-col">Privacy kitchen</h2>
                 </div>
              </div>
 
-            <!-- Neighbour Age Data -->
+             <!-- Privacy information bathroom -->
             <div class="data-container" id="comparison-data">
-                <h2>Mean Neighbour Age</h2>
-                <h3>24 years old</h3>
+                <div class="img-text-horizontal">
+                    <img src="Icons/person icon.png" alt="person icon" id="privacyBathroom-icon-left-col" class="privacy-icon">
+                    <h2 id="bathroom-display-left-col">Privacy bathroom</h2>
+                </div>
+             </div>
+
+            <!-- Neighbours list -->
+            <div class="data-container">
+                <h2>Neighbours</h2>
+                <ul id="neighbours-list-left-col"><!-- populated w/ JS--></ul>
              </div>
             
-             <!-- Nearest School Data -->
-            <div class="data-container" id="comparison-data">
-                <h2>Nearest School</h2>
-                <h3>HVL</h3>
-                <h3>0.7km</h3>
+             <!-- city centre distance -->
+            <div class="data-container" id="">
+                <h2>City centre</h2>
+                <h3 id="ccDistance-display-left-col">km</h3>
              </div>
 
             <!-- Facility Data -->
-             <div class="data-container">
-
-                <!-- Category 1: Wifi -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/wifi icon.png" alt="wifi icon">
-                    <h2>Wifi</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 2: Storage -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/storage icon.png" alt="Storage icon">
-                    <h2>Storage room</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 3: Laundry -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/laundry icon.png" alt="Laundry icon">
-                    <h2>Laundry room</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 4: Janitor -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Janitor icon.png" alt="Janitor icon">
-                    <h2>Janitor</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 5: Parking -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Car icon.png" alt="Car icon">
-                    <h2>Parking</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/Cross Icon.png" alt="Red Cross Icon">
-                </div>
-
-                <!-- Category 6: Bicycle parking -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Bicycle icon.png" alt="bicycle icon">
-                    <h2>Bicycle parking</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 7: Common Room -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Common room icon.png" alt="door icon">
-                    <h2>Common room</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 8: Elevator -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/elevator icon.png" alt="elevator icon">
-                    <h2>Elevator</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
+             <div class="data-container" id="facility-container-left-col">
              </div>
 
             <!-- Rating data -->
             <div class="data-container" id="centered-content">
                 <h2>Apartment rating</h2>
-                    <div class="rating-container">
-                        <img src="Icons/star filled icon.png" alt="filled star icon">
-                        <img src="Icons/star filled icon.png" alt="filled star icon">
-                        <img src="Icons/star filled icon.png" alt="filled star icon">
-                        <img src="Icons/star blank icon.png" alt="Empty star icon">
-                        <img src="Icons/star blank icon.png" alt="Empty star icon">
-                    </div>
-                <p class="suppport-text">37 reviews</p>
+                <ul id="rating-list-left-col"><!-- populated w/ JS--></ul>
             </div>
             
             <!-- Apply Button -->
-             <a href="#" class="button-primary"><h2>Apply for apartment</h2></a>
+             <a onclick="alert('Not available at the moment')" class="button-primary"><h2>Apply for apartment</h2></a>
 
         </div>
         
-
         <!-- Column Right-->
         <div class="comparison-container">
+
             <!--Dropdown menu 1 & 2-->
             <div class="dropdown-menu-wrapper">
-                <div class="dropdown-menu">
-                    <h3>Fridalen</h3>
-                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
-                </div>
-                <div class="dropdown-menu">
-                    <h3>H312</h3>
-                    <img src="Icons/Chevron Icon.png" alt="Chevron Icon">
-                </div>
+                <select name="location-filter-dropdown" id="HousingNumberCompared-right-col" class="dropdown-menu">
+                    <!-- render w/ JS -->
+                </select>
             </div>
 
             <!-- Location & Apartment type -->
-            <h1>Fridalen</h1>
-            <h3>H312 Shared apartment</h3>
+            <h1 id="title-right-col"></h1>
+            <h3 id="type-right-col"></h3>
 
             <!-- Location image -->
-            <img src="images/fridalen.png" alt="Image of Fridalen building" id="comparison-img">
+            <img src="images/fridalen.png" alt="Image of Fridalen building" id="comparison-img-right" class="comparison-img">
 
             <!-- Price information -->
              <div class="data-container" id="comparison-data">
                 <h2>Price</h2>
-                <h3>5000,-/month</h3>
-                <img src="Data Visualization/Diagram Data 3.png" alt="Price diagram" id="price-diagram">
+                <h3 id="price-right-col"></h3>
              </div>
 
             <!-- Sqare meters information -->
             <div class="data-container" id="comparison-data">
-                <h2>28 sqare meters</h2>
+                <h2 id="sqm-right-col"></h2>
              </div>
 
-            <!-- Privacy information -->
+            <!-- Privacy kitchen -->
             <div class="data-container" id="comparison-data">
                 <div class="img-text-horizontal">
-                    <img src="Icons/people icon.png" alt="people icon" id="privacy-icon">
-                    <h2>Shared Bedroom: 2 people</h2>
+                    <img src="Icons/person icon.png" alt="person icon" id="privacyKitchen-icon-right-col" class="privacy-icon">
+                    <h2 id="kitchen-display-right-col">Privacy kitchen</h2>
                 </div>
              </div>
 
-            <!-- Neighbour Age Data -->
+             <!-- Privacy bathroom -->
             <div class="data-container" id="comparison-data">
-                <h2>Mean Neighbour Age</h2>
-                <h3>28 years old</h3>
+                <div class="img-text-horizontal">
+                    <img src="Icons/person icon.png" alt="person icon" id="privacyBathroom-icon-right-col" class="privacy-icon">
+                    <h2 id="bathroom-display-right-col">Privacy bathroom</h2>
+                </div>
+             </div>
+
+            <!-- Neighbours list -->
+            <div class="data-container">
+                <h2>Neighbours</h2>
+                <ul id="neighbours-list-right-col"><!-- populated w/ JS--></ul>
              </div>
             
-             <!-- Nearest School Data -->
-            <div class="data-container" id="comparison-data">
-                <h2>Nearest School</h2>
-                <h3>HVL</h3>
-                <h3>1.2km</h3>
+            <!-- city centre distance -->
+            <div class="data-container" id="">
+                <h2>City centre</h2>
+                <h3 id="ccDistance-display-right-col"><!--render w/ JS--></h3>
              </div>
 
             <!-- Facility Data -->
-             <div class="data-container">
-
-                <!-- Category 1: Wifi -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/wifi icon.png" alt="wifi icon">
-                    <h2>Wifi</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 2: Storage -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/storage icon.png" alt="Storage icon">
-                    <h2>Storage room</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 3: Laundry -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/laundry icon.png" alt="Laundry icon">
-                    <h2>Laundry room</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 4: Janitor -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Janitor icon.png" alt="Janitor icon">
-                    <h2>Janitor</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 5: Parking -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Car icon.png" alt="Car icon">
-                    <h2>Parking</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/Cross Icon.png" alt="Red Cross Icon">
-                </div>
-
-                <!-- Category 6: Bicycle parking -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Bicycle icon.png" alt="bicycle icon">
-                    <h2>Bicycle parking</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
-
-                <!-- Category 7: Common Room -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/Common room icon.png" alt="door icon">
-                    <h2>Common room</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/Cross Icon.png" alt="red cross Icon">
-                </div>
-
-                <!-- Category 8: Elevator -->
-                <div class="img-text-wrapper">
-                    <!--Left icon and text-->
-                    <img src="Icons/elevator icon.png" alt="elevator icon">
-                    <h2>Elevator</h2>
-                    <!--Right Check/Cross icon-->
-                    <img src="Icons/check icon.png" alt="Green Check Icon">
-                </div>
+            <div class="data-container" id="facility-container-right-col">
+                <!-- pop. w/ JS -->
              </div>
 
             <!-- Rating data -->
             <div class="data-container" id="centered-content">
                 <h2>Apartment rating</h2>
-                    <div class="rating-container">
-                        <img src="Icons/star filled icon.png" alt="filled star icon">
-                        <img src="Icons/star filled icon.png" alt="filled star icon">
-                        <img src="Icons/star blank icon.png" alt="Empty star icon">
-                        <img src="Icons/star blank icon.png" alt="Empty star icon">
-                        <img src="Icons/star blank icon.png" alt="Empty star icon">
-                    </div>
-                <p class="suppport-text">82 reviews</p>
+                <ul id="rating-list-right-col"><!-- populated w/ JS--></ul>
             </div>
             
             <!-- Apply Button -->
-             <a href="#" class="button-primary"><h2>Apply for apartment</h2></a>
+             <a onclick="alert('Not available at the moment')" class="button-primary"><h2>Apply for apartment</h2></a>
 
         </div>
 
@@ -361,7 +209,7 @@
     <a href="#"><h2 class="footer-button">Contact</h2></a>
 </footer>
     
-    <script src="task4script.js"></script>
+    <script src="task4scriptComparison.js"></script>
 </body>
 
 </html>
