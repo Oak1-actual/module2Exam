@@ -1,6 +1,15 @@
 // Global data
 let listings = [];
 let storedCardId = "";
+const embeddedMaps = {
+  "All locations":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14800157.88254064!2d-2.919178642816199!3d63.07539848433741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x461268458f4de5bf%3A0xa1b03b9db864d02b!2sNorway!5e0!3m2!1sen!2sno!4v1744707255410!5m2!1sen!2sno",
+  "Bergen":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252524.79954690175!2d5.099529003450097!3d60.36511752106688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46390d4966767d77%3A0x9e42a03eb4de0a08!2sBergen!5e0!3m2!1sen!2sno!4v1744707406111!5m2!1sen!2sno",
+  "Trondheim":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57099.445684021164!2d10.315431949935626!3d63.434038772974716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x466d319747037e53%3A0xbf7c8288f3cf3d4!2sTrondheim!5e0!3m2!1sen!2sno!4v1744707465169!5m2!1sen!2sno",
+  "Oslo":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d128083.37577341287!2d10.62030818335675!3d59.89392431918946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e61f267f039%3A0x7e92605fd3231e9a!2sOslo!5e0!3m2!1sen!2sno!4v1744707519539!5m2!1sen!2sno",
+  "Stavanger":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d131710.8392007914!2d5.385003419676898!3d58.94849413347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463a3549dd29f795%3A0xad7aeb21b80a9259!2sStavanger!5e0!3m2!1sen!2sno!4v1744707577057!5m2!1sen!2sno"
+}
+
+console.log("Embedded maps: ",embeddedMaps);
 
 // Global selected filters
 let locationFiltered = document.getElementById("locFiltDropDown").value;
@@ -237,6 +246,7 @@ function applyFilters() {
     storeSelectedPrivacy();
     renderActiveFilters();
     filterListings();
+    updateEmbeddedMap(locationFiltered);
     document.getElementById("active-filters").scrollIntoView({ behavior: "smooth" }); // scrolls to filters
 
   });
@@ -262,13 +272,12 @@ function removeActiveFilter(text) {
 
   renderActiveFilters(); // updates active filters that are displayed
   filterListings(); // updates flexbox with filtered cards
+  updateEmbeddedMap(locationFiltered);
 }
 
 // Strutures logic for filtering which cards to show in flexbox.
 function filterListings() {
   const cards = document.querySelectorAll(".listing-card");
-
-  console.log(`price filtered: ${priceFiltered}, datatype: ${typeof priceFiltered}`);
 
   cards.forEach(card => {
     // data for card
@@ -276,7 +285,6 @@ function filterListings() {
     const cardPrice = Number(card.dataset.price);
     const cardKitchen = card.dataset.kitchen;
     const cardBathroom = card.dataset.bathroom;
-    console.log(`cardBathroom datatype = ${typeof cardBathroom}`)
     
     let show = true;
 
@@ -302,8 +310,6 @@ function filterListings() {
     } else {
       card.style.display = "flex";
     }
-
-    console.log(`cardPrice: ${cardPrice}. priceFiltered: ${priceFiltered}. show = ${show}`)
   })
 }
 
@@ -311,10 +317,16 @@ function filterListings() {
 function storeCardId(divId) {
   const encodedId = encodeURIComponent(divId);
   storedCardId = encodedId;
-  console.log(`this.id = ${divId}. Id stored in global variable = ${storedCardId}`)
+  console.log(`this.id = ${divId}. Card ID stored in global variable = ${storedCardId}`)
 }
 
 // sends user to detail page. Card ID is stored in url.
 function loadDetailPage() {
   window.location.href = `details.html?id=${storedCardId}`;
+}
+
+// Updates map in sidebar. Gets input data from global var "locationFiltered".
+function updateEmbeddedMap(locationFiltered) {
+  const embeddedMap = document.getElementById("embeddedMap");
+  embeddedMap.src = embeddedMaps[locationFiltered];
 }

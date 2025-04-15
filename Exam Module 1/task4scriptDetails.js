@@ -163,7 +163,7 @@ function renderFacilityList(data) {
   });    
 }
 
-function alertNotAvailable() {
+function alertNotAvailable(message) {
   alert("This is not available at the moment. You will be redirected to the comparison page.");
   loadNewPage();
 }
