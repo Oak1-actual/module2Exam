@@ -325,7 +325,7 @@ function renderComparedApartment(data,urlId) {
   ratingContainer.appendChild(friendliness);
 }
 
-// Sorts the dropdown list. Sorted in city:housing number.
+// Sorts the dropdown list. Sorted by city.
 function sortDropdown(containerId) {
   const dropdown = document.getElementById(containerId);
 
