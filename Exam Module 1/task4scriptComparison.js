@@ -26,6 +26,7 @@ function listingsFromAPI() {
 
 function renderHTMLelements(data) {
     populateAllDropdowns(data);
+    sortDropdown("HousingNumberCompared-left-col");
     renderComparedApartment(data,getIdFromUrl())
 }
 
@@ -41,7 +42,14 @@ function populateDropdown(listings, containerId, attribute) {
   const dropdown = document.getElementById(containerId);
   dropdown.innerHTML = ""; // resets list
 
-  const addedValues = []; // stores added values, for duplicate check.
+  // Adds a placeholder option as default.
+  const placeholder = document.createElement("option");
+  placeholder.textContent = "Choose housing to compare";
+  placeholder.disabled = true;
+  placeholder.selected = true;
+  dropdown.appendChild(placeholder);
+
+  const addedValues = []; // stores added option values, used for duplicate check.
 
   listings.forEach(listing => {
     let value;
@@ -315,4 +323,23 @@ function renderComparedApartment(data,urlId) {
   ratingContainer.appendChild(agreeability);
   ratingContainer.appendChild(sociability);
   ratingContainer.appendChild(friendliness);
+}
+
+// Sorts the dropdown list. Sorted in city:housing number.
+function sortDropdown(containerId) {
+  const dropdown = document.getElementById(containerId);
+
+  // Keeps the first option as a placeholder. Stores the rest in an array for sorting.
+  const firstOption = dropdown.options[0];
+  const otherOptions = Array.from(dropdown.options).slice(1);
+
+  // Sorts the options based on textContent.
+  otherOptions.sort((a, b) =>
+    a.textContent.localeCompare(b.textContent, 'no', { sensitivity: 'base' })
+  );
+
+  // Tømmer dropdown og legger inn igjen i riktig rekkefølge
+  dropdown.innerHTML = "";
+  dropdown.appendChild(firstOption);
+  otherOptions.forEach(option => dropdown.appendChild(option));
 }
