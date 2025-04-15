@@ -248,7 +248,6 @@ function applyFilters() {
     filterListings();
     updateEmbeddedMap(locationFiltered);
     document.getElementById("active-filters").scrollIntoView({ behavior: "smooth" }); // scrolls to filters
-
   });
 }
 
@@ -272,7 +271,7 @@ function removeActiveFilter(text) {
 
   renderActiveFilters(); // updates active filters that are displayed
   filterListings(); // updates flexbox with filtered cards
-  updateEmbeddedMap(locationFiltered);
+  updateEmbeddedMap(locationFiltered); // updates map location
 }
 
 // Strutures logic for filtering which cards to show in flexbox.

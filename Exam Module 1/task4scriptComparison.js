@@ -315,5 +315,4 @@ function renderComparedApartment(data,urlId) {
   ratingContainer.appendChild(agreeability);
   ratingContainer.appendChild(sociability);
   ratingContainer.appendChild(friendliness);
-
 }

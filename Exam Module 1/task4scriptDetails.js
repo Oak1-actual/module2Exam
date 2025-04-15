@@ -1,3 +1,12 @@
+// Global data
+const embeddedMaps = {
+  "All locations":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14800157.88254064!2d-2.919178642816199!3d63.07539848433741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x461268458f4de5bf%3A0xa1b03b9db864d02b!2sNorway!5e0!3m2!1sen!2sno!4v1744707255410!5m2!1sen!2sno",
+  "Bergen":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252524.79954690175!2d5.099529003450097!3d60.36511752106688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46390d4966767d77%3A0x9e42a03eb4de0a08!2sBergen!5e0!3m2!1sen!2sno!4v1744707406111!5m2!1sen!2sno",
+  "Trondheim":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57099.445684021164!2d10.315431949935626!3d63.434038772974716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x466d319747037e53%3A0xbf7c8288f3cf3d4!2sTrondheim!5e0!3m2!1sen!2sno!4v1744707465169!5m2!1sen!2sno",
+  "Oslo":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d128083.37577341287!2d10.62030818335675!3d59.89392431918946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e61f267f039%3A0x7e92605fd3231e9a!2sOslo!5e0!3m2!1sen!2sno!4v1744707519539!5m2!1sen!2sno",
+  "Stavanger":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d131710.8392007914!2d5.385003419676898!3d58.94849413347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463a3549dd29f795%3A0xad7aeb21b80a9259!2sStavanger!5e0!3m2!1sen!2sno!4v1744707577057!5m2!1sen!2sno"
+}
+
 // load page
 window.onload = function () {
     const urlId = getIdFromUrl();
@@ -29,6 +38,7 @@ function renderHTMLelements(data) {
     renderFacilityList(data);
     renderApprovalRatings(data);
     renderReviews(data);
+    updateEmbeddedMap(data);
 }
 
 function renderTitle(data) {
@@ -89,7 +99,7 @@ function renderLocationDetails(data) {
   // Distance to city centre
   createLi(data.housingConditions.distanceToCityCentre,"Km to city centre");
   // Mean neighbour age
-  createLi(calculateNeighborAge(data),"Mean neighbor age");
+  createLi(calculateNeighborAge(data),"Average neighbor age");
 
   // creates a li element and appends it to location list
   function createLi(apiPath,text) {
@@ -163,7 +173,7 @@ function renderFacilityList(data) {
   });    
 }
 
-function alertNotAvailable(message) {
+function alertNotAvailable() {
   alert("This is not available at the moment. You will be redirected to the comparison page.");
   loadNewPage();
 }
@@ -237,4 +247,19 @@ function renderReviews(data) {
 // sends user to comparison page. Card ID is stored in url.
 function loadNewPage() {
   window.location.href = `comparison.html?id=${getIdFromUrl()}`;
+}
+
+// Updates map in sidebar. Gets input from housing object.
+function updateEmbeddedMap(data) {
+  const embeddedMap = document.getElementById("embeddedMap");
+  const city = data.address.city
+
+  if (embeddedMap) {
+    embeddedMap.src = embeddedMaps[city];
+    console.log("this is selected: ",data.address.city);
+    console.log("This is var city = ",city);
+    console.log("embeddedMaps[city] =",embeddedMaps[city])
+  } else {
+    console.log("Error: embedded map = ",embeddedMap);
+  }
 }
